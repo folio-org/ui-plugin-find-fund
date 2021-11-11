@@ -24,7 +24,8 @@
     "build": "yarn stripes build --output ./output",
     "lint": "eslint .",
     "start": "yarn stripes serve",
-    "test": "jest --ci --coverage --passWithNoTests"
+    "test": "jest --ci --coverage --passWithNoTests",
+    "formatjs-compile": "formatjs compile-folder --ast --format simple ./translations/ui-plugin-find-fund ./translations/ui-plugin-find-fund/compiled"
   },
   "devDependencies": {
     "@babel/core": "^7.8.0",
@@ -36,6 +37,7 @@
     "@folio/eslint-config-stripes": "^6.0.0",
     "@folio/stripes": "^7.0.0",
     "@folio/stripes-cli": "^2.0.0",
+    "@formatjs/cli": "^4.2.16",
     "@testing-library/jest-dom": "^5.11.1",
     "@testing-library/react": "^11.0.4",
     "babel-eslint": "^10.0.0",
