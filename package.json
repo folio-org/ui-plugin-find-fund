@@ -24,7 +24,8 @@
     "build": "yarn stripes build --output ./output",
     "lint": "eslint .",
     "start": "yarn stripes serve",
-    "test": "jest --ci --coverage --passWithNoTests"
+    "test": "jest --ci --coverage --passWithNoTests",
+    "formatjs-compile": "formatjs compile-folder --ast --format simple ./translations/ui-plugin-find-fund ./translations/ui-plugin-find-fund/compiled"
   },
   "devDependencies": {
     "@babel/core": "^7.8.0",
