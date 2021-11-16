@@ -21,7 +21,6 @@ export const FindFund = ({ addFunds, isMultiSelect, ...rest }) => (
             {...viewProps}
             {...modalProps}
             isMultiSelect={isMultiSelect}
-            getRecordLabel={({ lastName, firstName }) => `${lastName}, ${firstName}`}
           />
         )}
       </FindFundContainer>

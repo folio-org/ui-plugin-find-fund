@@ -23,7 +23,7 @@
     "build": "yarn stripes build --output ./output",
     "lint": "eslint .",
     "start": "yarn stripes serve",
-    "test": "jest --ci --coverage && yarn run test:unit:report",
+    "test": "jest --ci --coverage && yarn run test:report",
     "test:report": "cp -r ./artifacts/coverage-jest ./artifacts/coverage",
     "test:watch": "jest --ci --coverage --watch",
     "formatjs-compile": "formatjs compile-folder --ast --format simple ./translations/ui-plugin-find-fund ./translations/ui-plugin-find-fund/compiled"
