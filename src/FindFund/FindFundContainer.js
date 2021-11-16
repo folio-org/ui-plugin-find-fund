@@ -32,7 +32,7 @@ const columnMapping = {
   ledger: <FormattedMessage id="ui-finance.fund.list.ledger" />,
 };
 const idPrefix = 'uiPluginFindFund-';
-const modalLabel = <FormattedMessage id="ui-plugin-find-fund.modal.title" />;
+const modalLabel = <FormattedMessage id="ui-plugin-find-fund.meta.title" />;
 
 class FindFundContainer extends React.Component {
   static manifest = Object.freeze({
