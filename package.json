@@ -14,8 +14,7 @@
     ],
     "pluginType": "find-fund",
     "displayName": "ui-plugin-find-fund.meta.title",
-    "okapiInterfaces": {
-    },
+    "okapiInterfaces": {},
     "stripesDeps": [
       "@folio/stripes-acq-components"
     ]
@@ -24,7 +23,9 @@
     "build": "yarn stripes build --output ./output",
     "lint": "eslint .",
     "start": "yarn stripes serve",
-    "test": "jest --ci --coverage --passWithNoTests",
+    "test": "jest --ci --coverage && yarn run test:report",
+    "test:report": "cp -r ./artifacts/coverage-jest ./artifacts/coverage",
+    "test:watch": "jest --ci --coverage --watch",
     "formatjs-compile": "formatjs compile-folder --ast --format simple ./translations/ui-plugin-find-fund ./translations/ui-plugin-find-fund/compiled"
   },
   "devDependencies": {
@@ -40,6 +41,7 @@
     "@formatjs/cli": "^4.2.16",
     "@testing-library/jest-dom": "^5.11.1",
     "@testing-library/react": "^11.0.4",
+    "@testing-library/user-event": "^13.5.0",
     "babel-eslint": "^10.0.0",
     "babel-jest": "^26.3.0",
     "core-js": "^3.6.1",
