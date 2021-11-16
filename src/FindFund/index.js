@@ -1,1 +1,1 @@
-export const FindFund = () => 'FindFund';
+export * from './FindFund';
