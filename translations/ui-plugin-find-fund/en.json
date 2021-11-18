@@ -1,5 +1,7 @@
 {
   "meta.title": "Funds",
+  
+  "modal.title": "Select funds",
 
   "button.add": "Add fund"
 }
