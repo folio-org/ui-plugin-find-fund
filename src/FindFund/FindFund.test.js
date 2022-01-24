@@ -1,16 +1,64 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, act } from '@testing-library/react';
+import { noop } from 'lodash';
 
+import { FindRecords } from '@folio/stripes-acq-components';
+
+import {
+  useFetchFunds,
+  useFetchLedgers,
+} from './hooks';
 import { FindFund } from './FindFund';
 
+jest.mock('@folio/stripes-acq-components', () => {
+  return {
+    ...jest.requireActual('@folio/stripes-acq-components'),
+    FindRecords: jest.fn(() => <span>FindRecords</span>),
+  };
+});
+jest.mock('./hooks', () => ({
+  useFetchFunds: jest.fn(),
+  useFetchLedgers: jest.fn(),
+}));
+
 const renderFindFund = () => (render(
-  <FindFund />,
+  <FindFund addFunds={noop} />,
 ));
 
 describe('FindFund component', () => {
-  it('should render find-fund plugin', async () => {
+  beforeEach(() => {
+    FindRecords.mockClear();
+
+    useFetchFunds.mockClear().mockReturnValue({ fetchFunds: noop });
+    useFetchLedgers.mockClear().mockReturnValue({ fetchLedgers: noop });
+  });
+
+  it('should render FindRecords component', async () => {
     const { getByText } = renderFindFund();
 
-    expect(getByText('ui-plugin-find-fund.button.add')).toBeDefined();
+    expect(getByText('FindRecords')).toBeDefined();
+  });
+
+  it('should call fetchFunds when refreshRecords is called', async () => {
+    const fetchFundsMock = jest.fn().mockReturnValue(Promise.resolve({ funds: [], totalRecords: 0 }));
+    const filters = { status: 'Active' };
+
+    useFetchFunds.mockClear().mockReturnValue({ fetchFunds: fetchFundsMock });
+    renderFindFund();
+
+    await act(async () => FindRecords.mock.calls[0][0].refreshRecords(filters));
+
+    expect(fetchFundsMock).toHaveBeenCalledWith({ offset: 0, searchParams: filters });
+  });
+
+  it('should call fetchFunds when onNeedMoreData is called', async () => {
+    const fetchFundsMock = jest.fn().mockReturnValue(Promise.resolve({ funds: [], totalRecords: 0 }));
+
+    useFetchFunds.mockClear().mockReturnValue({ fetchFunds: fetchFundsMock });
+    renderFindFund();
+
+    await act(async () => FindRecords.mock.calls[0][0].onNeedMoreData());
+
+    expect(fetchFundsMock).toHaveBeenCalledWith({ offset: 30, searchParams: {} });
   });
 });
