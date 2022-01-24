@@ -13,11 +13,11 @@ export const FUND_STATUSES_OPTIONS = [
   { label: <FormattedMessage id="ui-finance.fund.status.frozen" />, value: FUND_STATUSES.FROZEN },
 ];
 
-export const FILTERS = {
+export const FUND_FILTERS = {
   LEDGER: 'ledgerId',
   STATUS: 'fundStatus',
   TYPE: 'fundTypeId',
-  GROUP: 'group',
+  GROUP: 'groupFundFY.groupId',
   ACQUISITIONS_UNIT: 'acqUnitIds',
   TAGS: 'tags',
 };
