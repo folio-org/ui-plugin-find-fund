@@ -26,6 +26,7 @@
     "test": "jest --ci --coverage && yarn run test:report",
     "test:report": "cp -r ./artifacts/coverage-jest ./artifacts/coverage",
     "test:watch": "jest --ci --coverage --watch",
+    "build-mod-descriptor": "stripes mod descriptor --full --strict | jq '.[]' > module-descriptor.json ",
     "formatjs-compile": "formatjs compile-folder --ast --format simple ./translations/ui-plugin-find-fund ./translations/ui-plugin-find-fund/compiled"
   },
   "devDependencies": {
