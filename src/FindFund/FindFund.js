@@ -37,7 +37,7 @@ const columnMapping = {
 };
 const resultsFormatter = {};
 
-const INIT_PAGINATION = { limit: PLUGIN_RESULT_COUNT_INCREMENT || 35, offset: 0 };
+const INIT_PAGINATION = { limit: PLUGIN_RESULT_COUNT_INCREMENT, offset: 0 };
 
 export const FindFund = ({ addFunds, isMultiSelect, ...rest }) => {
   const [totalCount, setTotalCount] = useState(0);
