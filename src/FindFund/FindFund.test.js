@@ -48,7 +48,7 @@ describe('FindFund component', () => {
 
     await act(async () => FindRecords.mock.calls[0][0].refreshRecords(filters));
 
-    expect(fetchFundsMock).toHaveBeenCalledWith({ offset: 0, searchParams: filters });
+    expect(fetchFundsMock).toHaveBeenCalledWith({ limit: 30, offset: 0, searchParams: filters });
   });
 
   it('should call fetchFunds when onNeedMoreData is called', async () => {
@@ -57,8 +57,8 @@ describe('FindFund component', () => {
     useFetchFunds.mockClear().mockReturnValue({ fetchFunds: fetchFundsMock });
     renderFindFund();
 
-    await act(async () => FindRecords.mock.calls[0][0].onNeedMoreData());
+    await act(async () => FindRecords.mock.calls[0][0].onNeedMoreData({ limit: 30, offset: 30 }));
 
-    expect(fetchFundsMock).toHaveBeenCalledWith({ offset: 30, searchParams: {} });
+    expect(fetchFundsMock).toHaveBeenCalledWith({ limit: 30, offset: 30, searchParams: {} });
   });
 });

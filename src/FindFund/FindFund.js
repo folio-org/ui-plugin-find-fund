@@ -2,7 +2,10 @@ import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 
-import { FindRecords } from '@folio/stripes-acq-components';
+import {
+  FindRecords,
+  PLUGIN_RESULT_COUNT_INCREMENT,
+} from '@folio/stripes-acq-components';
 
 import { FundsListFiltersContainer } from './FundsListFilters';
 import {
@@ -13,8 +16,6 @@ import {
 import {
   searchableIndexes,
 } from './FundsSearchConfig';
-
-const RESULT_COUNT_INCREMENT = 30;
 
 const idPrefix = 'uiPluginFindFund-';
 const modalLabel = <FormattedMessage id="ui-plugin-find-fund.modal.title" />;
@@ -36,12 +37,14 @@ const columnMapping = {
 };
 const resultsFormatter = {};
 
+const INIT_PAGINATION = { limit: PLUGIN_RESULT_COUNT_INCREMENT, offset: 0 };
+
 export const FindFund = ({ addFunds, isMultiSelect, ...rest }) => {
-  const [offset, setOffset] = useState(0);
   const [totalCount, setTotalCount] = useState(0);
   const [records, setRecords] = useState([]);
   const [searchParams, setSearchParams] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+  const [pagination, setPagination] = useState(INIT_PAGINATION);
 
   const { fetchLedgers } = useFetchLedgers();
   const { fetchFunds } = useFetchFunds({
@@ -53,10 +56,10 @@ export const FindFund = ({ addFunds, isMultiSelect, ...rest }) => {
 
     setRecords([]);
     setTotalCount(0);
-    setOffset(0);
+    setPagination(INIT_PAGINATION);
     setSearchParams(filters);
 
-    fetchFunds({ offset: 0, searchParams: filters })
+    fetchFunds({ ...INIT_PAGINATION, searchParams: filters })
       .then(({ funds, totalRecords }) => {
         setTotalCount(totalRecords);
         setRecords(funds);
@@ -64,18 +67,16 @@ export const FindFund = ({ addFunds, isMultiSelect, ...rest }) => {
       .finally(() => setIsLoading(false));
   }, [fetchFunds]);
 
-  const onNeedMoreData = () => {
-    const newOffset = offset + RESULT_COUNT_INCREMENT;
-
+  const onNeedMoreData = useCallback((newPagination) => {
     setIsLoading(true);
 
-    fetchFunds({ offset: newOffset, searchParams })
+    fetchFunds({ ...newPagination, searchParams })
       .then(({ funds }) => {
-        setOffset(newOffset);
-        setRecords(prev => [...prev, ...funds]);
+        setPagination(newPagination);
+        setRecords(funds);
       })
       .finally(() => setIsLoading(false));
-  };
+  }, [fetchFunds, searchParams]);
 
   const renderFilters = useCallback((activeFilters, applyFilters) => {
     return (
@@ -106,6 +107,7 @@ export const FindFund = ({ addFunds, isMultiSelect, ...rest }) => {
       isLoading={isLoading}
       selectRecords={addFunds}
       renderFilters={renderFilters}
+      pagination={pagination}
     />
   );
 };
