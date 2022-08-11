@@ -4,10 +4,11 @@ import {
   useOkapiKy,
 } from '@folio/stripes/core';
 import {
+  buildArrayFieldQuery,
   FUNDS_API,
   getFiltersCount,
   makeQueryBuilder,
-  buildArrayFieldQuery,
+  PLUGIN_RESULT_COUNT_INCREMENT,
 } from '@folio/stripes-acq-components';
 
 import {
@@ -41,6 +42,7 @@ export const useFetchFunds = ({
   const fetchFunds = useCallback(async ({
     searchParams = {},
     offset = 0,
+    limit = PLUGIN_RESULT_COUNT_INCREMENT,
   }) => {
     const fundsQuery = buildFundsQuery(searchParams);
     const filtersCount = getFiltersCount(searchParams);
@@ -51,7 +53,7 @@ export const useFetchFunds = ({
 
     const builtSearchParams = {
       query: fundsQuery,
-      limit: 30,
+      limit,
       offset,
     };
 
