@@ -2,7 +2,10 @@ import React from 'react';
 import { render, act } from '@testing-library/react';
 import { noop } from 'lodash';
 
-import { FindRecords } from '@folio/stripes-acq-components';
+import {
+  FindRecords,
+  PLUGIN_RESULT_COUNT_INCREMENT,
+} from '@folio/stripes-acq-components';
 
 import {
   useFetchFunds,
@@ -48,7 +51,11 @@ describe('FindFund component', () => {
 
     await act(async () => FindRecords.mock.calls[0][0].refreshRecords(filters));
 
-    expect(fetchFundsMock).toHaveBeenCalledWith({ limit: 30, offset: 0, searchParams: filters });
+    expect(fetchFundsMock).toHaveBeenCalledWith({
+      limit: PLUGIN_RESULT_COUNT_INCREMENT,
+      offset: 0,
+      searchParams: filters,
+    });
   });
 
   it('should call fetchFunds when onNeedMoreData is called', async () => {
@@ -57,8 +64,15 @@ describe('FindFund component', () => {
     useFetchFunds.mockClear().mockReturnValue({ fetchFunds: fetchFundsMock });
     renderFindFund();
 
-    await act(async () => FindRecords.mock.calls[0][0].onNeedMoreData({ limit: 30, offset: 30 }));
+    await act(async () => FindRecords.mock.calls[0][0].onNeedMoreData({
+      limit: PLUGIN_RESULT_COUNT_INCREMENT,
+      offset: PLUGIN_RESULT_COUNT_INCREMENT,
+    }));
 
-    expect(fetchFundsMock).toHaveBeenCalledWith({ limit: 30, offset: 30, searchParams: {} });
+    expect(fetchFundsMock).toHaveBeenCalledWith({
+      limit: PLUGIN_RESULT_COUNT_INCREMENT,
+      offset: PLUGIN_RESULT_COUNT_INCREMENT,
+      searchParams: {},
+    });
   });
 });
