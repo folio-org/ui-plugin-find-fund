@@ -3,6 +3,7 @@
 ## (in progress)
 
 * Find a fund - Implement MCL Next/Previous pagination. Refs UIPFF-9.
+* Use defined constant as value of `limit` param in unit tests. UIPFF-11.
 
 ## [1.1.0](https://github.com/folio-org/ui-plugin-find-fund/tree/v1.1.0) (2022-07-07)
 
