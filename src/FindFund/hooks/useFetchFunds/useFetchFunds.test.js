@@ -4,6 +4,9 @@ import { renderHook } from '@testing-library/react-hooks';
 import {
   useOkapiKy,
 } from '@folio/stripes/core';
+import {
+  PLUGIN_RESULT_COUNT_INCREMENT,
+} from '@folio/stripes-acq-components';
 
 import { useFetchFunds } from './useFetchFunds';
 
@@ -53,7 +56,7 @@ describe('useFetchFunds', () => {
       'finance/funds',
       {
         searchParams: {
-          limit: 30,
+          limit: PLUGIN_RESULT_COUNT_INCREMENT,
           offset: 15,
           query: '(status=="Active") sortby name/sort.ascending',
         },
