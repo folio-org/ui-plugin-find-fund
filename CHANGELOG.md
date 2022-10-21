@@ -2,10 +2,14 @@
 
 ## (in progress)
 
+## [1.2.0](https://github.com/folio-org/folio-org/ui-plugin-find-fund/tree/v1.2.0) (2022-10-21)
+[Full Changelog](https://github.com/folio-org/ui-plugin-find-fund/compare/v1.1.0...v1.2.0)
+
 * Find a fund - Implement MCL Next/Previous pagination. Refs UIPFF-9.
 * Use defined constant as value of `limit` param in unit tests. UIPFF-11.
 
 ## [1.1.0](https://github.com/folio-org/ui-plugin-find-fund/tree/v1.1.0) (2022-07-07)
+[Full Changelog](https://github.com/folio-org/ui-plugin-find-fund/compare/v1.0.0...v1.1.0)
 
 * Replace `babel-eslint` with `@babel/eslint-parser`. Refs UIPFF-6.
 
