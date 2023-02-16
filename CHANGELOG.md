@@ -2,6 +2,9 @@
 
 ## (in progress)
 
+## [2.0.0](https://github.com/folio-org/folio-org/ui-plugin-find-fund/tree/v2.0.0) (2023-02-17)
+[Full Changelog](https://github.com/folio-org/ui-plugin-find-fund/compare/v1.2.0...v2.0.0)
+
 * *BREAKING*: Update `@folio/stripes` to `8.0.0`. Refs UIPFF-13.
 
 ## [1.2.0](https://github.com/folio-org/folio-org/ui-plugin-find-fund/tree/v1.2.0) (2022-10-21)
