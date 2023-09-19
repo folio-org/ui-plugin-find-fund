@@ -2,6 +2,7 @@
 
 ## (in progress)
 
+* Upgrade `Node.js` to `18` version in GitHub Actions. Refs UIPFF-16.
 * *BREAKING* bump `react-intl` to `v6.4.4`. Refs UIPFF-17.
 
 ## [2.0.0](https://github.com/folio-org/folio-org/ui-plugin-find-fund/tree/v2.0.0) (2023-02-17)
