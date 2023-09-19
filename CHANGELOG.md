@@ -2,6 +2,8 @@
 
 ## (in progress)
 
+* Upgrade `Node.js` to `18` version in GitHub Actions. Refs UIPFF-16.
+
 ## [2.0.0](https://github.com/folio-org/folio-org/ui-plugin-find-fund/tree/v2.0.0) (2023-02-17)
 [Full Changelog](https://github.com/folio-org/ui-plugin-find-fund/compare/v1.2.0...v2.0.0)
 
