@@ -1,5 +1,10 @@
-const commonCofig = require('@folio/stripes-acq-components/jest.config');
+const stripesConfig = require('@folio/jest-config-stripes');
+const acqConfig = require('@folio/stripes-acq-components/jest.config');
 
 module.exports = {
-  ...commonCofig,
+  ...stripesConfig,
+  setupFiles: [
+    ...stripesConfig.setupFiles,
+    ...acqConfig.setupFiles,
+  ],
 };

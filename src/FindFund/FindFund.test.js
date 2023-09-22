@@ -1,7 +1,6 @@
-import React from 'react';
-import { render, act } from '@testing-library/react';
 import { noop } from 'lodash';
 
+import { render, act } from '@folio/jest-config-stripes/testing-library/react';
 import {
   FindRecords,
   PLUGIN_RESULT_COUNT_INCREMENT,

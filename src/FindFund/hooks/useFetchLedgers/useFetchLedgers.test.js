@@ -1,9 +1,5 @@
-import React from 'react';
-import { renderHook } from '@testing-library/react-hooks';
-
-import {
-  useOkapiKy,
-} from '@folio/stripes/core';
+import { renderHook } from '@folio/jest-config-stripes/testing-library/react';
+import { useOkapiKy } from '@folio/stripes/core';
 
 import { useFetchLedgers } from './useFetchLedgers';
 
