@@ -2,6 +2,14 @@ import { render } from '@folio/jest-config-stripes/testing-library/react';
 
 import FundsListFilters from './FundsListFilters';
 
+jest.mock('@folio/stripes-acq-components/lib/hooks/useAcquisitionUnits', () => ({
+  useAcquisitionUnits: jest.fn(() => ({ acquisitionsUnits: [] })),
+}));
+jest.mock('@folio/stripes-acq-components/lib/hooks/useTags', () => ({
+  useTags: jest.fn(() => ({ tags: [] })),
+  useTagsConfigs: jest.fn(() => ({ configs: [] })),
+}));
+
 const defaultProps = {
   activeFilters: {},
   applyFilters: jest.fn(),
