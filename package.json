@@ -1,6 +1,6 @@
 {
   "name": "@folio/plugin-find-fund",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "Find and select funds plugin for Stripes",
   "main": "index.js",
   "repository": "",
