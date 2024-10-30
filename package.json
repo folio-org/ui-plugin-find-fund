@@ -1,6 +1,6 @@
 {
   "name": "@folio/plugin-find-fund",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "Find and select funds plugin for Stripes",
   "main": "index.js",
   "repository": "",
@@ -53,7 +53,7 @@
     "use-deep-compare": "^1.1.0"
   },
   "dependencies": {
-    "@folio/stripes-acq-components": "~5.1.0",
+    "@folio/stripes-acq-components": "~6.0.0",
     "lodash": "^4.17.5",
     "prop-types": "^15.5.10"
   },
