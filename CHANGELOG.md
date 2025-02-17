@@ -2,6 +2,8 @@
 
 ## (3.3.0 IN PROGRESS)
 
+* Migrate to shared GA workflows. Refs UIPFF-23.
+
 ## [3.2.0](https://github.com/folio-org/ui-plugin-find-fund/tree/v3.2.0) (2024-10-30)
 [Full Changelog](https://github.com/folio-org/ui-plugin-find-fund/compare/v3.1.0...v3.2.0)
 
