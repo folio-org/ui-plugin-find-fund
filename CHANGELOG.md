@@ -1,8 +1,10 @@
 # Change history for ui-plugin-find-fund
 
-## (3.3.0 IN PROGRESS)
+## (4.0.0 IN PROGRESS)
 
 * Migrate to shared GA workflows. Refs UIPFF-23.
+* *BREAKING* Migrate stripes dependencies to their Sunflower versions. Refs UIPFF-24.
+* *BREAKING* Migrate `react-intl` to v7. Refs UIPFF-25.
 
 ## [3.2.0](https://github.com/folio-org/ui-plugin-find-fund/tree/v3.2.0) (2024-10-30)
 [Full Changelog](https://github.com/folio-org/ui-plugin-find-fund/compare/v3.1.0...v3.2.0)

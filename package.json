@@ -1,6 +1,6 @@
 {
   "name": "@folio/plugin-find-fund",
-  "version": "3.2.0",
+  "version": "4.0.0",
   "description": "Find and select funds plugin for Stripes",
   "main": "index.js",
   "repository": "",
@@ -24,7 +24,7 @@
     "test:report": "cp -r ./artifacts/coverage-jest ./artifacts/coverage",
     "test:watch": "jest --ci --coverage --watch",
     "build-mod-descriptor": "stripes mod descriptor --full --strict | jq '.[]' > module-descriptor.json ",
-    "formatjs-compile": "formatjs compile-folder --ast --format simple ./translations/ui-plugin-find-fund ./translations/ui-plugin-find-fund/compiled"
+    "formatjs-compile": "stripes translate compile"
   },
   "devDependencies": {
     "@babel/core": "^7.8.0",
@@ -34,11 +34,10 @@
     "@babel/plugin-transform-runtime": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.7.4",
-    "@folio/eslint-config-stripes": "^7.0.0",
-    "@folio/jest-config-stripes": "^2.0.0",
-    "@folio/stripes": "^9.0.0",
-    "@folio/stripes-cli": "^3.0.0",
-    "@formatjs/cli": "^6.1.3",
+    "@folio/eslint-config-stripes": "^8.0.0",
+    "@folio/jest-config-stripes": "^3.0.0",
+    "@folio/stripes": "^10.0.0",
+    "@folio/stripes-cli": "^4.0.0",
     "core-js": "^3.6.1",
     "eslint": "^7.32.0",
     "eslint-plugin-filenames": "^1.3.2",
@@ -46,22 +45,22 @@
     "identity-obj-proxy": "^3.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-intl": "^6.4.4",
+    "react-intl": "^7.1.5",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "regenerator-runtime": "^0.13.3",
     "use-deep-compare": "^1.1.0"
   },
   "dependencies": {
-    "@folio/stripes-acq-components": "~6.0.0",
+    "@folio/stripes-acq-components": "~7.0.0",
     "lodash": "^4.17.5",
     "prop-types": "^15.5.10"
   },
   "peerDependencies": {
-    "@folio/stripes": "^9.0.0",
+    "@folio/stripes": "^10.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-intl": "^6.4.4",
+    "react-intl": "^7.1.5",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0"
   }
