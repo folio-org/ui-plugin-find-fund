@@ -1,6 +1,9 @@
 # Change history for ui-plugin-find-fund
 
-## (4.0.0 IN PROGRESS)
+## (4.1.0 IN PROGRESS)
+
+## [4.0.0](https://github.com/folio-org/ui-plugin-find-fund/tree/v4.0.0) (2025-03-11)
+[Full Changelog](https://github.com/folio-org/ui-plugin-find-fund/compare/v3.2.0...v4.0.0)
 
 * Migrate to shared GA workflows. Refs UIPFF-23.
 * *BREAKING* Migrate stripes dependencies to their Sunflower versions. Refs UIPFF-24.
