@@ -2,6 +2,8 @@
 
 ## (4.1.0 IN PROGRESS)
 
+* React v19: Refactor away from default props for functional components. Refs UIPFF-20.
+
 ## [4.0.0](https://github.com/folio-org/ui-plugin-find-fund/tree/v4.0.0) (2025-03-11)
 [Full Changelog](https://github.com/folio-org/ui-plugin-find-fund/compare/v3.2.0...v4.0.0)
 

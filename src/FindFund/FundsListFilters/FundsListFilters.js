@@ -17,11 +17,18 @@ import {
 
 const applyFiltersAdapter = (applyFilters) => ({ name, values }) => applyFilters(name, values);
 
+/* For non-primitive values it's better to keep the reference to avoid unnecessary re-renders */
+const defaultProps = {
+  fundTypes: [],
+  groups: [],
+  ledgers: [],
+};
+
 const FundsListFilters = ({
   activeFilters,
-  fundTypes,
-  groups,
-  ledgers,
+  fundTypes = defaultProps.fundTypes,
+  groups = defaultProps.groups,
+  ledgers = defaultProps.ledgers,
   applyFilters,
 }) => {
   const adaptedApplyFilters = useCallback(
@@ -85,12 +92,6 @@ FundsListFilters.propTypes = {
   fundTypes: selectOptionsShape,
   groups: selectOptionsShape,
   ledgers: selectOptionsShape,
-};
-
-FundsListFilters.defaultProps = {
-  fundTypes: [],
-  groups: [],
-  ledgers: [],
 };
 
 export default FundsListFilters;
