@@ -1,5 +1,8 @@
-import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
+import {
+  useCallback,
+  useState,
+} from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import {
@@ -13,9 +16,7 @@ import {
   useFetchLedgers,
 } from './hooks';
 
-import {
-  searchableIndexes,
-} from './FundsSearchConfig';
+import { searchableIndexes } from './FundsSearchConfig';
 
 const idPrefix = 'uiPluginFindFund-';
 const modalLabel = <FormattedMessage id="ui-plugin-find-fund.modal.title" />;
@@ -39,7 +40,12 @@ const resultsFormatter = {};
 
 const INIT_PAGINATION = { limit: PLUGIN_RESULT_COUNT_INCREMENT, offset: 0 };
 
-export const FindFund = ({ addFunds, isMultiSelect, ...rest }) => {
+export const FindFund = ({
+  addFunds,
+  isMultiSelect = true,
+  searchLabel = <FormattedMessage id="ui-plugin-find-fund.button.add" />,
+  ...rest
+}) => {
   const [totalCount, setTotalCount] = useState(0);
   const [records, setRecords] = useState([]);
   const [searchParams, setSearchParams] = useState({});
@@ -90,24 +96,25 @@ export const FindFund = ({ addFunds, isMultiSelect, ...rest }) => {
   return (
     <FindRecords
       {...rest}
-      modalLabel={modalLabel}
-      resultsPaneTitle={resultsPaneTitle}
-      idPrefix={idPrefix}
-      columnWidths={columnWidths}
-      visibleColumns={visibleColumns}
-      sortableColumns={sortableColumns}
       columnMapping={columnMapping}
-      resultsFormatter={resultsFormatter}
-      records={records}
-      totalCount={totalCount}
-      refreshRecords={refreshRecords}
-      onNeedMoreData={onNeedMoreData}
-      searchableIndexes={searchableIndexes}
-      isMultiSelect={isMultiSelect}
+      columnWidths={columnWidths}
+      idPrefix={idPrefix}
       isLoading={isLoading}
-      selectRecords={addFunds}
-      renderFilters={renderFilters}
+      isMultiSelect={isMultiSelect}
+      modalLabel={modalLabel}
+      onNeedMoreData={onNeedMoreData}
       pagination={pagination}
+      records={records}
+      refreshRecords={refreshRecords}
+      renderFilters={renderFilters}
+      resultsFormatter={resultsFormatter}
+      resultsPaneTitle={resultsPaneTitle}
+      searchableIndexes={searchableIndexes}
+      searchLabel={searchLabel}
+      selectRecords={addFunds}
+      sortableColumns={sortableColumns}
+      totalCount={totalCount}
+      visibleColumns={visibleColumns}
     />
   );
 };
@@ -119,9 +126,4 @@ FindFund.propTypes = {
   searchLabel: PropTypes.node,
   isMultiSelect: PropTypes.bool,
   addFunds: PropTypes.func.isRequired,
-};
-
-FindFund.defaultProps = {
-  isMultiSelect: true,
-  searchLabel: <FormattedMessage id="ui-plugin-find-fund.button.add" />,
 };
